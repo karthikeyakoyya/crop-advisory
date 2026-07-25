@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field Ledger — Crop Yield &amp; Irrigation Advisory</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/iconfont/tabler-icons.min.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to advisory form</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" role="img" aria-label="Field Ledger logo">
+        <rect width="40" height="40" rx="8" fill="#d9a62e"/>
+        <path d="M8 30 Q14 16 20 30 Q26 16 32 30" stroke="#16241b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <circle cx="20" cy="11" r="3.2" fill="#16241b"/>
+      </svg>
+      <div>
+        <div class="brand-name">Field Ledger</div>
+        <div class="brand-tag">Crop &amp; irrigation advisory</div>
+      </div>
+    </div>
+    <div class="header-meta">Andhra Pradesh district network<br>13 districts &middot; 6 crops on file</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Read the season <em>before</em> you sow it.</h1>
+      <p>Enter your district, crop, and sowing date. Field Ledger weighs a decade of rainfall, soil, and yield records to estimate what this season is likely to bring — and when your fields will actually need water.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">10 yr</div>
+          <div class="label">Rainfall history</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">80%</div>
+          <div class="label">Confidence band</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">6</div>
+          <div class="label">Crops modeled</div>
+        </div>
+      </div>
+    </div>
+    <div class="gauge-wrap">
+      <svg width="230" height="230" viewBox="0 0 230 230" role="img" aria-label="Illustration of a rain gauge beside a growing plant">
+        <circle cx="115" cy="115" r="108" fill="none" stroke="#4d7857" stroke-width="1" opacity="0.4"/>
+        <line x1="55" y1="190" x2="55" y2="60" stroke="#f6f1e3" stroke-width="2" opacity="0.5"/>
+        <rect x="45" y="80" width="20" height="110" rx="3" fill="none" stroke="#d9a62e" stroke-width="2"/>
+        <rect x="47" y="140" width="16" height="48" fill="#d9a62e" opacity="0.85"/>
+        <g stroke="#f6f1e3" stroke-width="1" opacity="0.6">
+          <line x1="65" y1="100" x2="72" y2="100"/>
+          <line x1="65" y1="120" x2="72" y2="120"/>
+          <line x1="65" y1="140" x2="72" y2="140"/>
+          <line x1="65" y1="160" x2="72" y2="160"/>
+        </g>
+        <path d="M140 190 C136 150 150 130 148 100" stroke="#4d7857" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M148 130 C160 122 172 126 176 112" stroke="#4d7857" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M146 108 C136 100 128 104 122 92" stroke="#4d7857" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <ellipse cx="176" cy="108" rx="9" ry="5" fill="#639922" transform="rotate(-25 176 108)"/>
+        <ellipse cx="122" cy="88" rx="9" ry="5" fill="#639922" transform="rotate(30 122 88)"/>
+        <ellipse cx="148" cy="96" rx="8" ry="5" fill="#97c459" transform="rotate(-5 148 96)"/>
+        <line x1="30" y1="40" x2="24" y2="55" stroke="#d9a62e" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+        <line x1="45" y1="35" x2="41" y2="52" stroke="#d9a62e" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<main id="main" class="app-shell">
+  <div class="card form-card">
+    <h2>Get this season's outlook</h2>
+    <p class="sub">Fill in your field details. Soil readings are optional — we'll use the latest district survey if you leave them blank.</p>
+
+    <form id="advisory-form" novalidate>
+      <div class="field">
+        <label for="district">District</label>
+        <select id="district" required></select>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="crop">Crop</label>
+          <select id="crop" required></select>
+        </div>
+        <div class="field">
+          <label for="season_name">Season</label>
+          <select id="season_name" required>
+            <option value="kharif">Kharif (monsoon)</option>
+            <option value="rabi">Rabi (winter)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="area_hectares">Area (hectares)</label>
+          <input type="number" id="area_hectares" min="0.1" max="5000" step="0.1" value="2" required>
+        </div>
+        <div class="field">
+          <label for="sowing_date">Sowing date</label>
+          <input type="date" id="sowing_date" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="irrigation_source">Irrigation source</label>
+        <select id="irrigation_source" required>
+          <option value="borewell">Borewell</option>
+          <option value="canal">Canal</option>
+          <option value="tank">Tank</option>
+          <option value="rainfed">Rainfed only</option>
+        </select>
+      </div>
+
+      <button type="button" class="advanced-toggle" id="advanced-toggle">
+        <i class="ti ti-chevron-down" id="advanced-chevron"></i> Add soil readings (optional)
+      </button>
+      <div class="advanced-panel" id="advanced-panel">
+        <div class="field-row">
+          <div class="field">
+            <label for="soil_ph">Soil pH</label>
+            <input type="number" id="soil_ph" min="3.5" max="10" step="0.1" placeholder="e.g. 6.8">
+          </div>
+          <div class="field">
+            <label for="soil_moisture_pct">Soil moisture (%)</label>
+            <input type="number" id="soil_moisture_pct" min="0" max="100" step="0.5" placeholder="e.g. 22">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="nitrogen_kg_ha">Nitrogen (kg/ha)</label>
+            <input type="number" id="nitrogen_kg_ha" min="0" max="1000" step="1" placeholder="e.g. 280">
+          </div>
+          <div class="field">
+            <label for="organic_carbon_pct">Organic carbon (%)</label>
+            <input type="number" id="organic_carbon_pct" min="0" max="3" step="0.01" placeholder="e.g. 0.5">
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submit-btn">Generate outlook</button>
+      <div class="form-error" id="form-error"></div>
+    </form>
+  </div>
+
+  <div class="card results-panel">
+    <div class="results-empty" id="results-empty">
+      <i class="ti ti-plant-2"></i>
+      <h3>Your outlook will appear here</h3>
+      <p>Fill in the form and generate an outlook to see predicted yield, an irrigation schedule, and any risk flags for your field.</p>
+    </div>
+
+    <div class="results-body" id="results-body">
+      <div class="results-header">
+        <div>
+          <div class="loc" id="res-location">—</div>
+          <div class="dates" id="res-dates">—</div>
+        </div>
+        <div class="yield-figure">
+          <div class="num" id="res-yield">—</div>
+          <div class="band" id="res-band">kg / hectare, 80% band</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Rain ledger — expected rainfall vs. crop water need</h3>
+        <div class="rain-ledger">
+          <div class="rain-ledger-track">
+            <div class="rain-ledger-fill" id="rain-fill"></div>
+            <div class="rain-ledger-need" id="rain-need-marker"></div>
+          </div>
+          <div class="rain-ledger-labels">
+            <span id="rain-expected">expected: — mm</span>
+            <span id="rain-need">crop need marker</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Irrigation schedule</h3>
+        <ul class="timeline" id="irrigation-timeline"></ul>
+      </div>
+
+      <div class="section" id="risk-section">
+        <h3>Risk flags</h3>
+        <div id="risk-flags"></div>
+      </div>
+
+      <div class="section">
+        <h3>How this was estimated</h3>
+        <ul class="reasoning-list" id="reasoning-list"></ul>
+        <p class="reasoning-note" id="reasoning-note"></p>
+      </div>
+
+      <div class="section">
+        <div class="disclaimer">
+          <i class="ti ti-info-circle"></i>
+          <span id="disclaimer-text"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  Field Ledger is a decision-support tool, not a substitute for local agricultural extension advice.
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
