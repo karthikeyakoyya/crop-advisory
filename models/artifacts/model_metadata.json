@@ -1,0 +1,36 @@
+{
+  "numeric_cols": [
+    "area_hectares",
+    "sowing_month",
+    "cycle_days",
+    "growth_stage_fraction",
+    "pre_sowing_rain_30d",
+    "pre_sowing_rain_60d",
+    "pre_sowing_rain_90d",
+    "season_total_rainfall_mm",
+    "season_rain_days",
+    "season_avg_tmax_c",
+    "season_avg_tmin_c",
+    "season_avg_humidity_pct",
+    "temp_trend_c_per_month",
+    "soil_ph",
+    "organic_carbon_pct",
+    "nitrogen_kg_ha",
+    "phosphorus_kg_ha",
+    "potassium_kg_ha",
+    "soil_moisture_pct"
+  ],
+  "categorical_cols": [
+    "district_name",
+    "crop_name",
+    "season_name",
+    "irrigation_source"
+  ],
+  "target": "target_yield_kg_per_ha",
+  "test_metrics": {
+    "mae": 940.7841419049162,
+    "mape": 0.20425753845304992,
+    "r2": 0.9806243487358787
+  },
+  "interval_coverage_80pct_target": 0.6268656716417911
+}
