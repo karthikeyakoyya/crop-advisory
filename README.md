@@ -1,4 +1,6 @@
 # Field Ledger — Crop Yield & Irrigation Advisory System
+Live demo: https://crop-advisory-353j.onrender.com
+Code: https://github.com/karthikeyakoyya/crop-advisory
 
 A decision-support tool for smallholder farmers and agricultural extension officers in Andhra Pradesh. Given a district, crop, sowing date, and (optionally) soil readings, it returns:
 
